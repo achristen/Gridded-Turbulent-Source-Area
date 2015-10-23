@@ -6,9 +6,11 @@ In the case of a landscape with a homogenous distribution of sources (or sinks) 
 
 ![](gridded-source-area.png)
 
-If the actual sources (and sinks) are known, then the total flux measured at the tower is the integral over the product of all grid cells's 
+If the actual geographical distribution of sources (and sinks) in the source area are known, then the total flux measured at the tower is the sum over the product of footprint function and the grid cell's flux over all cells as illustrated here (see also Christen et al. 2011 for an example):
 
-Individual source areas for one time step can be merged into a cumulative source area for a climatology.
+![](gridded-weighted-flux-example.png)
+
+Individual source areas for one time step can be merged into a cumulative source area to create a source area climatology.
 
 
 
