@@ -1,6 +1,14 @@
 # Gridded-Turbulent-Source-Area
 
-Purpose: Calculate and output gridded turbulent source areas following the Kormann and Meixner (2000) analytical source area model. Individual source areas for one time step can be merged into a cumulative source area for a climatology.
+Purpose: Calculate and output gridded turbulent source areas following the Kormann and Meixner (2000) analytical source area model. 
+
+In the case of a landscape with a homogenous distribution of turbulent fluxes at the surface, the gridded source areas show the fraction of turbulent flux originating from a cell (m-2). More generally the grid cells show the vertical flux per unit point source. 
+
+![](gridded-source-area.png)
+
+Individual source areas for one time step can be merged into a cumulative source area for a climatology.
+
+
 
 ## Code
 
