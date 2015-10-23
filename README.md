@@ -49,6 +49,37 @@ The output includes in a structure:
       PARAM_USTAR     DOUBLE  Friction velocity
       PARAM_XSI       DOUBLE  Flux length scale
    
+
+## fpr_write_ncdf.pro
+ 
+This program calculates the flux source area ('footprint'), rotates then the output 
+into mean wind and writes a geographcally referenced raster into a netCDF file. This code 
+calls fpr_kormann_and_meixner.pro described below.
+
+The netCDF format is described here:
+http://www.unidata.ucar.edu/software/netcdf/docs/
+
+### required inputs:
+
+* z_0_input : float. roughness length z0 of surface (in m)
+* z_m_input : float. effective measurement height of flux system (in m) i.e. zm = (z-d)
+* u_input : float. measured longitudinal wind velocity component (im m/s)
+* sig_v_input : float. measured standard deviation of lateral wind velocity (im m/s)
+* L_input : float. measured Obukhov length (in m)
+* juliantime : double. time of the footprint as julian date
+* wd_input : float. wind directions in degree from geographic North.
+  
+### optional inputs
+
+* filename : string. path. filename of the netCDF file the footprint will be written to.
+* domain_output: float. the domain size in m for the ncdf file, where the flux system will be in the center (i.e. domain size will be domain_output x domain_output)
+* x_max_input : float. maximum distance the model grid should extend upwind of the sensor (default 1000 m)
+* y_max_input  : float. maximum distance the model grid should extend lateral away from the centreline (default 500 m). Total domain in y-direction is 2 x y_max_input (default 1000 m)
+* d_input : float. resultion of the grid-cells in m (default 5 m)
+* site : string. name of site / system
+* timezone : string. time zone of time information.
+* provider     : data providor or operator of site.
+
 ## References
 
 Kormann, R, and Franz X Meixner. 2001. 'An Analytical Footprint Model for Non-Neutral Stratification.' Boundary-Layer Meteorology 99 (2): 207–24.
