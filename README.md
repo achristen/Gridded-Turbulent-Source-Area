@@ -12,7 +12,7 @@ If the actual geographical distribution of sources (and sinks) in the source are
 
 Individual source areas for one time step can be merged into a cumulative source area to create a source area climatology.
 
-
+![](gridded-cumulative-source-area.png)
 
 ## Code
 
