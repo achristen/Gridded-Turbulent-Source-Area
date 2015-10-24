@@ -14,7 +14,7 @@ Individual source areas for one time step can be merged into a cumulative source
 
 ![](gridded-cumulative-source-area.png)
 
-## Running the code from the command line
+## Creating footprint grids from the command line
 
 You must have the IDL Virtual Machine installed or the full development version. The following steps have been tested under UNIX / Mac. To install the (free) IDL Virtual Machine go to:
 
@@ -35,7 +35,7 @@ Arguments passed via "-args" are as follows in exactly this order and separated 
 * [sig_v] is the standard deviation of lateral wind velocity (im m/s)
 * [L_input] is the Obukhov length (in m)
 
-Here is an example
+Here is an example:
 
       idl -rt=/Users/Username/fpr_write_ncdf.sav -args /Users/Username/footprint.nc 0.002 25.42 3.25 320.2 0.032 294002
 
@@ -55,6 +55,8 @@ There are additional optional commands as follows
 Here is an expanded example
 
       idl -rt=/Users/Username/fpr_write_ncdf.sav -args /Users/Username/footprint.nc 0.002 25.42 3.25 320.2 0.032 294002 500 200 1000 2.0 1783049.5 Vancouver-Sunset GMT-8 UBC
+      
+Make sure there are no spaces in the station name or file path.
    
 ### Batch processing
 
@@ -62,9 +64,9 @@ One can write a batch file or use scripting to call the line with different argu
    
 ### Potential errors   
    
-   If you cannot run this command, you must set-up your IDL command first:
+If you cannot run IDL from the command line, it is possible that the IDL command is not defined. In this case, you must manually set-up your IDL command first by typing into the terminal:
 
-            echo "export PATH=/Applications/exelis/idl84/bin:$PATH" >> ~/.bashrc;
+            echo "export PATH=/Applications/exelis/idl84/bin:$PATH" >> ~/.bashrc
             echo "source ~/.bashrc" >> ~/.bash_profile
 
 Then log out and into your account again.
@@ -141,3 +143,5 @@ The output includes in a structure:
 ## References
 
 Kormann, R, and Franz X Meixner. 2001. 'An Analytical Footprint Model for Non-Neutral Stratification.' Boundary-Layer Meteorology 99 (2): 207–24.
+
+Christen, A, Coops NC, Crawford BC, Kellett R, Liss KN, Olchovski I, Tooke TR, van der Laan M, Voogt JA. 2011. 'Validation of Modeled Carbon-Dioxide Emissions From an Urban Neighborhood with Direct Eddy-Covariance Measurements.' Atmospheric Environment 45 (33). 6057–69. http://dx.doi.org/10.1016/j.atmosenv.2011.07.040
