@@ -1,6 +1,6 @@
 # Gridded-Turbulent-Source-Area
 
-Purpose: Calculate and output gridded turbulent source areas following the [Kormann and Meixner (2000)](#korman). analytical source area model. 
+Purpose: Calculate and output gridded turbulent source areas following the [Kormann and Meixner (2000)](#korman) analytical source area model. 
 
 In the case of a landscape with a homogenous distribution of sources (or sinks) at the surface, the gridded footprint function *&phi;* (x,y) shows the fraction of vertical turbulent flux originating from a cell (m^-2) representing a surface area. More generally, the grid cells show the vertical flux at the surface per unit point source (at the tower), when inverting time. 
 
