@@ -2,32 +2,32 @@
 
 Purpose: Calculate and output gridded turbulent source areas following the [Kormann and Meixner (2000)](#korman). analytical source area model. 
 
-In the case of a landscape with a homogenous distribution of sources (or sinks) at the surface, the gridded footprint function &phi; (x,y) shows the fraction of vertical turbulent flux originating from a cell (m^-2) representing a surface area. More generally, the grid cells show the vertical flux at the surface per unit point source (at the tower), when inverting time. 
+In the case of a landscape with a homogenous distribution of sources (or sinks) at the surface, the gridded footprint function *&phi;* (x,y) shows the fraction of vertical turbulent flux originating from a cell (m^-2) representing a surface area. More generally, the grid cells show the vertical flux at the surface per unit point source (at the tower), when inverting time. 
 
 ![](gridded-source-area.png)
 
-If the actual geographical distribution of sources (and sinks) in the source area is known, then the total flux measured at the tower is the sum over the product of footprint function &phi; (x,y) and the grid cell's flux *F* (x,y) over all cells as illustrated here (see also [Christen et al. 2011](#christen) for an example):
+If the actual geographical distribution of sources (and sinks) in the source area is known, then the total flux measured at the tower is the sum over the product of footprint function *&phi;* (x,y) and the grid cell's flux *F* (x,y) over all cells as illustrated here (see also [Christen et al. 2011](#christen) for an example):
 
 ![](gridded-weighted-flux-example.png)
 
-Individual source areas for one time step can be merged into a cumulative source area to create a source area climatology. In a cumulative source area, for each x and y, the individual &phi; (x,y) from each time step are summed and divided by the number of time steps.
+Individual source areas for one time step can be merged into a cumulative source area to create a source area climatology. In a cumulative source area, for each x and y, the individual *&phi;* (x,y) from each time step are summed and divided by the number of time steps.
 
 ![](gridded-cumulative-source-area.png)
 
 ## Creating footprint grids from the command line
 
-You must either have the free [IDL Virtual Machine}(http://www.exelisvis.com/Support/HelpArticlesDetail/TabId/219/ArtMID/900/ArticleID/12395/The-IDL-Virtual-Machine.aspx) installed or the full development version. The following steps have been tested under UNIX / Mac. To install the (free) IDL Virtual Machine go to:
+You must either have the free [IDL Virtual Machine](http://www.exelisvis.com/Support/HelpArticlesDetail/TabId/219/ArtMID/900/ArticleID/12395/The-IDL-Virtual-Machine.aspx) installed or the full development version. The following steps have been tested under UNIX / Mac. To install the (free) IDL Virtual Machine go to:
 
 
 
 Then you can call IDL in runtime mode from the command line with the following required arguments:
 
-      idl =rt=[Path-to-fpr_write_ncdf.sav] -args [Outputfile] [z0] [zm] [u] [wd] [sig_v] [L]
+      idl =rt=[Path_to_fpr_write_ncdf.sav] -args [Path_to_output_file] [z0] [zm] [u] [wd] [sig_v] [L]
  
 Arguments passed via "-args" are as follows in exactly this order and separated by space
  
-* [Path-to-fpr_write_ncdf.sav] is the full file path to the compiled Path-to-fpr_write_ncdf.sav file
-* [Outputfile] is the full file path of the netCDF file to be written
+* [Path_to_fpr_write_ncdf.sav] is the full file path to the compiled Path-to-fpr_write_ncdf.sav file
+* [Path_to_output_file] is the full file path of the netCDF file to be written
 * [z0] is the rougness length (in m)
 * [zm] is the height of flux system (in m) 
 * [u] is the longitudinal wind velocity component (im m/s)
@@ -41,16 +41,16 @@ Here is an example:
 
 There are additional optional commands as follows
  
-      idl =rt=[Path-to-fpr_write_ncdf.sav] -args [Outputfile] [z0] [zm] [u] [wd] [sig_v] [L] [XD] [YD] [OD] [grid] [datetime] [site] [timezone] [provider]
+      idl =rt=[Path_to_fpr_write_ncdf.sav] -args [Path_to_output_file] [z0] [zm] [u] [wd] [sig_v] [L] [XD] [YD] [OD] [grid] [datetime] [site] [timezone] [provider]
  
 * [XD] Maximum distance the model grid (in m) should extend upwind of the sensor (default 1000 m)
 * [YD] Maximum distance the model grid (in m) should extend lateral away from the centreline (default 500 m).   
 * [OD]: The total domain size in m for the netCDF file output, where the flux system will be in the center (i.e. domain size will be domain_output x domain_output)
 * [grid] resolution of the grid-cells in m (default 5 m)
-* [datetime] : double. date and time of the footprint as julian date (see https://en.wikipedia.org/wiki/Julian_day)
+* [datetime] : double. date and time of the footprint as [julian date](https://en.wikipedia.org/wiki/Julian_day)
 * [site] text. name of site / system
 * [timezone] text. time zone of time information.
-* [provider] : text. data provider or operator of site.
+* [provider] text. data provider or operator of site.
 
 Here is an expanded example
 
