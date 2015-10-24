@@ -14,7 +14,7 @@ Individual source areas for one time step can be merged into a cumulative source
 
 ![](gridded-cumulative-source-area.png)
 
-## Running the code from the commandline
+## Running the code from the command line
 
 You must have the IDL Virtual Machine installed or the full development version. The following steps have been tested under UNIX / Mac. To install the (free) IDL Virtual Machine go to:
 
@@ -69,7 +69,13 @@ One can write a batch file or use scripting to call the line with different argu
 
 Then log out and into your account again.
 
-## Source Code
+## Compiled code  
+
+## fpr_write_ncdf.sav
+
+This compiled code calculates the flux source area ('footprint') for one given time step in a gridded version, rotates then the output into mean wind and writes a geographcally referenced raster into a netCDF file. It can be called from the command line as discussed above.
+
+## Source Code 
 
 ## fpr_write_ncdf.pro
  
