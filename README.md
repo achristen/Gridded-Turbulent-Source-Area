@@ -35,6 +35,10 @@ Arguments passed via "-args" are as follows in exactly this order and separated 
 * [sig_v] is the standard deviation of lateral wind velocity (im m/s)
 * [L_input] is the Obukhov length (in m)
 
+Here is an example
+
+      idl -rt=/Users/Username/fpr_write_ncdf.sav -args /Users/Username/footprint.nc 0.002 25.42 3.25 320.2 0.032 294002
+
 There are additional optional commands as follows
  
       idl =rt=[Path-to-fpr_write_ncdf.sav] -args [Outputfile] [z0] [zm] [u] [wd] [sig_v] [L] [XD] [YD] [OD] [grid] [datetime] [site] [timezone] [provider]
@@ -48,9 +52,9 @@ There are additional optional commands as follows
 * [timezone] text. time zone of time information.
 * [provider] : text. data provider or operator of site.
 
-Here is an example
+Here is an expanded example
 
-   idl -rt=/Users/Username/fpr_write_ncdf.sav -args /Users/Username/footprint.nc 0.002 25.42 3.25 320.2 0.032 294002 500 200 1000 2.0 1783049.5 Vancouver-Sunset GMT-8 UBC
+      idl -rt=/Users/Username/fpr_write_ncdf.sav -args /Users/Username/footprint.nc 0.002 25.42 3.25 320.2 0.032 294002 500 200 1000 2.0 1783049.5 Vancouver-Sunset GMT-8 UBC
    
 ### Potential errors   
    
