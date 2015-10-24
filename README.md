@@ -16,9 +16,9 @@ Individual source areas for one time step can be merged into a cumulative source
 
 ## Creating footprint grids from the command line
 
-You must have the IDL Virtual Machine installed or the full development version. The following steps have been tested under UNIX / Mac. To install the (free) IDL Virtual Machine go to:
+You must either have the free [IDL Virtual Machine}(http://www.exelisvis.com/Support/HelpArticlesDetail/TabId/219/ArtMID/900/ArticleID/12395/The-IDL-Virtual-Machine.aspx) installed or the full development version. The following steps have been tested under UNIX / Mac. To install the (free) IDL Virtual Machine go to:
 
-http://www.exelisvis.com/Support/HelpArticlesDetail/TabId/219/ArtMID/900/ArticleID/12395/The-IDL-Virtual-Machine.aspx
+
 
 Then you can call IDL in runtime mode from the command line with the following required arguments:
 
