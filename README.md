@@ -71,13 +71,22 @@ Then log out and into your account again.
 
 ## Compiled code  
 
-## fpr_write_ncdf.sav
+### fpr_write_ncdf.sav
 
 This compiled code calculates the flux source area ('footprint') for one given time step in a gridded version, rotates then the output into mean wind and writes a geographcally referenced raster into a netCDF file. It can be called from the command line as discussed above.
 
+### fpr_write_ncdf.sav
+
+This code aggregates a cumulative flux source area ('footprint') file by averaging
+multiple individual footprint files form multiple time steps. The individual 
+files must have been generated in netCDF format by #fpr_write_ncdf# and have 
+the same dimensions. By selectively choosing files, one can create cumulative
+footprints for specific cases (e.g. night, day).
+
 ## Source Code 
 
-## fpr_write_ncdf.pro
+### fpr_write_ncdf.pro
+(source code of compiled "fpr_write_ncdf.sav")
  
 This routine calculates the flux source area ('footprint') for one given time step in a gridded version, rotates then the output into mean wind and writes a geographcally referenced raster into a netCDF file. This code calls the subroutine fpr_kormann_and_meixner.pro described below to perform calculations.
 
@@ -94,7 +103,7 @@ http://www.unidata.ucar.edu/software/netcdf/docs/
 * sig_v_input : float. measured standard deviation of lateral wind velocity (im m/s)
 * L_input : float. measured Obukhov length (in m)
 
-### optional inputs
+#### optional inputs
 
 * juliantime : double. time of the footprint as julian date
 * domain_output: float. the domain size in m for the ncdf file, where the flux system will be in the center (i.e. domain size will be domain_output x domain_output)
@@ -138,6 +147,25 @@ The output includes in a structure:
       PARAM_USTAR     DOUBLE  Friction velocity
       PARAM_XSI       DOUBLE  Flux length scale
    
+### fpr_write_cumulative_ncdf.pro
+(source code of compiled "fpr_write_ncdf.sav")
+
+This code aggregates a cumulative flux source area ('footprint') file by averaging
+multiple individual footprint files form multiple time steps. The individual 
+files must have been generated in netCDF format by #fpr_write_ncdf# and have 
+the same dimensions. By selectively choosing files, one can create cumulative
+footprints for specific cases (e.g. night, day).
+
+#### Optional inputs include:
+
+*  ncfiles : stringarray. This is an optional parameter that supplies of a string array of paths to all 
+individual foortprint files that should be aggregated. If not provided, a file
+dialog will promt the user to select multiple footprint files.
+
+* outfile. string (path). This is the file path to which the cumulative file (to be created) will be written to. If not provided, a file dialog will promt the user to choose the name and location of the cumulative footprint output.
+   
+* "description". string. This is a used-defined, optional description that allows to place a description into the netCDF output, e.g. "night-time cases".
+
 ## References
 
 <a name="korman"></a> Kormann, R, and Franz X Meixner. 2001. 'An Analytical Footprint Model for Non-Neutral Stratification.' Boundary-Layer Meteorology 99 (2): 207–24.
