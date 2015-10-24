@@ -16,11 +16,9 @@ Individual source areas for one time step can be merged into a cumulative source
 
 ## Creating footprint grids from the command line
 
-You must either have the free [IDL Virtual Machine](http://www.exelisvis.com/Support/HelpArticlesDetail/TabId/219/ArtMID/900/ArticleID/12395/The-IDL-Virtual-Machine.aspx) installed or the full development version. The following steps have been tested under UNIX / Mac. To install the (free) IDL Virtual Machine go to:
+You must either have the free [IDL Virtual Machine](http://www.exelisvis.com/Support/HelpArticlesDetail/TabId/219/ArtMID/900/ArticleID/12395/The-IDL-Virtual-Machine.aspx) installed or the full development version of IDL. The following steps have been tested under UNIX / Mac. 
 
-
-
-Then you can call IDL in runtime mode from the command line with the following required arguments:
+Then you can call IDL in runtime mode (withougt need of a license) from the command line with the following required arguments:
 
       idl =rt=[Path_to_fpr_write_ncdf.sav] -args [Path_to_output_file] [z0] [zm] [u] [wd] [sig_v] [L]
  
@@ -47,10 +45,10 @@ There are additional optional commands as follows
 * [YD] Maximum distance the model grid (in m) should extend lateral away from the centreline (default 500 m).   
 * [OD]: The total domain size in m for the netCDF file output, where the flux system will be in the center (i.e. domain size will be domain_output x domain_output)
 * [grid] resolution of the grid-cells in m (default 5 m)
-* [datetime] : double. date and time of the footprint as [julian date](https://en.wikipedia.org/wiki/Julian_day)
-* [site] text. name of site / system
-* [timezone] text. time zone of time information.
-* [provider] text. data provider or operator of site.
+* [datetime] : double. date and time of the footprint as [julian date](https://en.wikipedia.org/wiki/Julian_day). This is written into the netCDF file for documentation purposes.
+* [site] text. name of site / system. This is written into the netCDF file for documentation purposes.
+* [timezone] text. time zone of time information. This is written into the netCDF file for documentation purposes.
+* [provider] text. data provider or operator of site. This is written into the netCDF file for documentation purposes.
 
 Here is an expanded example
 
@@ -60,7 +58,7 @@ Make sure there are no spaces in the station name or file path.
    
 ### Batch processing
 
-One can write a batch file or use scripting to call the line with different arguments to process large datasets.
+You can write a batch file or use scripting to call the same line with different arguments to process large datasets and automatically change the filenames of the output.
    
 ### Potential errors   
    
