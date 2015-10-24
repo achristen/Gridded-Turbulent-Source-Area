@@ -14,7 +14,45 @@ Individual source areas for one time step can be merged into a cumulative source
 
 ![](gridded-cumulative-source-area.png)
 
-## Code
+## Running the software
+
+You must have the IDL Virtual Machine installed. To install the IDL Virtual Machine go to:
+
+http://www.exelisvis.com/Support/HelpArticlesDetail/TabId/219/ArtMID/900/ArticleID/12395/The-IDL-Virtual-Machine.aspx
+
+Then you can call then IDL in runtime mode from the command line with the following required arguments:
+
+   idl =rt=[Path-to-fpr_write_ncdf.sav] -args [Outputfile] [z0] [zm] [u] [wd] [sig_v] [L]
+ 
+Arguments passed vis -args are as follows in exactly this order
+ 
+* [Path-to-fpr_write_ncdf.sav] is the full file path to the compiled Path-to-fpr_write_ncdf.sav file
+* [Outputfile] is the full file path of the netCDF file to be written
+* [z0] is the rougness length (in m)
+* [zm] is the height of flux system (in m) 
+* [u] is the longitudinal wind velocity component (im m/s)
+* [wd] wind direction (from geogr. N)
+* [sig_v] is the standard deviation of lateral wind velocity (im m/s)
+* [L_input] is the Obukhov length (in m)
+
+There are additional optional commands as follows
+ 
+   idl =rt=[Path-to-fpr_write_ncdf.sav] -args [Outputfile] [z0] [zm] [u] [wd] [sig_v] [L] [XD] [YD] [OD] [grid] [datetime] [site] [timezone] [provider]
+ 
+* [XD] Maximum distance the model grid (in m) should extend upwind of the sensor (default 1000 m)
+* [YD] Maximum distance the model grid (in m) should extend lateral away from the centreline (default 500 m).   
+* [OD]: The total domain size in m for the netCDF file output, where the flux system will be in the center (i.e. domain size will be domain_output x domain_output)
+* [grid] resolution of the grid-cells in m (default 5 m)
+* [datetime] : double. date and time of the footprint as julian date (see https://en.wikipedia.org/wiki/Julian_day)
+* [site] text. name of site / system
+* [timezone] text. time zone of time information.
+* [provider] : text. data provider or operator of site.
+
+Here is an example
+
+   idl -rt=/Users/Username/fpr_write_ncdf.sav -args /Users/Username/footprint.nc 0.002 25.42 3.25 320.2 0.032 294002 500 200 1000 2.0 1783049.5 Vancouver-Sunset GMT-8 UBC
+
+## Source Code
 
 ## fpr_write_ncdf.pro
  
@@ -25,17 +63,17 @@ http://www.unidata.ucar.edu/software/netcdf/docs/
 
 ### required inputs:
 
+* filename : string. path. filename of the netCDF file the footprint will be written to.
 * z_0_input : float. roughness length z0 of surface (in m)
 * z_m_input : float. effective measurement height of flux system (in m) i.e. zm = (z-d)
 * u_input : float. measured longitudinal wind velocity component (im m/s)
+* wd_input : float. wind directions in degree from geographic North.
 * sig_v_input : float. measured standard deviation of lateral wind velocity (im m/s)
 * L_input : float. measured Obukhov length (in m)
-* juliantime : double. time of the footprint as julian date
-* wd_input : float. wind directions in degree from geographic North.
-  
+
 ### optional inputs
 
-* filename : string. path. filename of the netCDF file the footprint will be written to.
+* juliantime : double. time of the footprint as julian date
 * domain_output: float. the domain size in m for the ncdf file, where the flux system will be in the center (i.e. domain size will be domain_output x domain_output)
 * x_max_input : float. maximum distance the model grid should extend upwind of the sensor (default 1000 m)
 * y_max_input  : float. maximum distance the model grid should extend lateral away from the centreline (default 500 m). Total domain in y-direction is 2 x y_max_input (default 1000 m)
