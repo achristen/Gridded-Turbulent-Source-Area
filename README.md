@@ -1,12 +1,12 @@
 # Gridded-Turbulent-Source-Area
 
-Purpose: Calculate and output gridded turbulent source areas following the Kormann and Meixner (2000) analytical source area model. 
+Purpose: Calculate and output gridded turbulent source areas following the [Kormann and Meixner (2000)](#korman). analytical source area model. 
 
 In the case of a landscape with a homogenous distribution of sources (or sinks) at the surface, the gridded footprint function &phi; (x,y) shows the fraction of vertical turbulent flux originating from a cell (m^-2) representing a surface area. More generally, the grid cells show the vertical flux at the surface per unit point source (at the tower), when inverting time. 
 
 ![](gridded-source-area.png)
 
-If the actual geographical distribution of sources (and sinks) in the source area are known, then the total flux measured at the tower is the sum over the product of footprint function and the grid cell's flux over all cells as illustrated here (see also Christen et al. 2011 for an example):
+If the actual geographical distribution of sources (and sinks) in the source area are known, then the total flux measured at the tower is the sum over the product of footprint function and the grid cell's flux over all cells as illustrated here (see also [Christen et al. 2011](#christen) for an example):
 
 ![](gridded-weighted-flux-example.png)
 
@@ -142,6 +142,6 @@ The output includes in a structure:
    
 ## References
 
-Kormann, R, and Franz X Meixner. 2001. 'An Analytical Footprint Model for Non-Neutral Stratification.' Boundary-Layer Meteorology 99 (2): 207–24.
+<a name="korman"></a> Kormann, R, and Franz X Meixner. 2001. 'An Analytical Footprint Model for Non-Neutral Stratification.' Boundary-Layer Meteorology 99 (2): 207–24.
 
-Christen, A, Coops NC, Crawford BC, Kellett R, Liss KN, Olchovski I, Tooke TR, van der Laan M, Voogt JA. 2011. 'Validation of Modeled Carbon-Dioxide Emissions From an Urban Neighborhood with Direct Eddy-Covariance Measurements.' Atmospheric Environment 45 (33). 6057–69. http://dx.doi.org/10.1016/j.atmosenv.2011.07.040
+<a name="christen"></a>Christen, A, Coops NC, Crawford BC, Kellett R, Liss KN, Olchovski I, Tooke TR, van der Laan M, Voogt JA. 2011. 'Validation of Modeled Carbon-Dioxide Emissions From an Urban Neighborhood with Direct Eddy-Covariance Measurements.' Atmospheric Environment 45 (33). 6057–69. http://dx.doi.org/10.1016/j.atmosenv.2011.07.040
