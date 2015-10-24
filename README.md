@@ -22,7 +22,7 @@ http://www.exelisvis.com/Support/HelpArticlesDetail/TabId/219/ArtMID/900/Article
 
 Then you can call then IDL in runtime mode from the command line with the following required arguments:
 
-   idl =rt=[Path-to-fpr_write_ncdf.sav] -args [Outputfile] [z0] [zm] [u] [wd] [sig_v] [L]
+      idl =rt=[Path-to-fpr_write_ncdf.sav] -args [Outputfile] [z0] [zm] [u] [wd] [sig_v] [L]
  
 Arguments passed vis -args are as follows in exactly this order
  
@@ -37,7 +37,7 @@ Arguments passed vis -args are as follows in exactly this order
 
 There are additional optional commands as follows
  
-   idl =rt=[Path-to-fpr_write_ncdf.sav] -args [Outputfile] [z0] [zm] [u] [wd] [sig_v] [L] [XD] [YD] [OD] [grid] [datetime] [site] [timezone] [provider]
+      idl =rt=[Path-to-fpr_write_ncdf.sav] -args [Outputfile] [z0] [zm] [u] [wd] [sig_v] [L] [XD] [YD] [OD] [grid] [datetime] [site] [timezone] [provider]
  
 * [XD] Maximum distance the model grid (in m) should extend upwind of the sensor (default 1000 m)
 * [YD] Maximum distance the model grid (in m) should extend lateral away from the centreline (default 500 m).   
