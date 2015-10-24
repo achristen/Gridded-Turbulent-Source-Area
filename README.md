@@ -6,7 +6,7 @@ In the case of a landscape with a homogenous distribution of sources (or sinks) 
 
 ![](gridded-source-area.png)
 
-If the actual geographical distribution of sources (and sinks) in the source area are known, then the total flux measured at the tower is the sum over the product of footprint function and the grid cell's flux over all cells as illustrated here (see also [Christen et al. 2011](#christen) for an example):
+If the actual geographical distribution of sources (and sinks) in the source area is known, then the total flux measured at the tower is the sum over the product of footprint function &phi; (x,y) and the grid cell's flux *F* (x,y) over all cells as illustrated here (see also [Christen et al. 2011](#christen) for an example):
 
 ![](gridded-weighted-flux-example.png)
 
