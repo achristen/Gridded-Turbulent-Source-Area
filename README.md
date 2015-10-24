@@ -14,9 +14,9 @@ Individual source areas for one time step can be merged into a cumulative source
 
 ![](gridded-cumulative-source-area.png)
 
-## Running the software
+## Running the code from the commandline
 
-You must have the IDL Virtual Machine installed. The following steps have been tested under UNIX / Mac. To install the IDL Virtual Machine go to:
+You must have the IDL Virtual Machine installed or the full development version. The following steps have been tested under UNIX / Mac. To install the (free) IDL Virtual Machine go to:
 
 http://www.exelisvis.com/Support/HelpArticlesDetail/TabId/219/ArtMID/900/ArticleID/12395/The-IDL-Virtual-Machine.aspx
 
@@ -55,6 +55,10 @@ There are additional optional commands as follows
 Here is an expanded example
 
       idl -rt=/Users/Username/fpr_write_ncdf.sav -args /Users/Username/footprint.nc 0.002 25.42 3.25 320.2 0.032 294002 500 200 1000 2.0 1783049.5 Vancouver-Sunset GMT-8 UBC
+   
+### Batch processing
+
+One can write a batch file or use scripting to call the line with different arguments to process large datasets.
    
 ### Potential errors   
    
