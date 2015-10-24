@@ -18,7 +18,9 @@ Individual source areas for one time step can be merged into a cumulative source
 
 You must either have the free [IDL Virtual Machine](http://www.exelisvis.com/Support/HelpArticlesDetail/TabId/219/ArtMID/900/ArticleID/12395/The-IDL-Virtual-Machine.aspx) installed or the full development version of IDL. The following steps have been tested under UNIX / Mac. 
 
-Then you can call IDL in runtime mode (withougt need of a license) from the command line with the following required arguments:
+### Creating and individual footprint grid for one case from the command line
+
+Then you can call IDL in runtime mode (without need of a license) from the command line with the following required arguments:
 
       idl =rt=[Path_to_fpr_write_ncdf.sav] -args [Path_to_output_file] [z0] [zm] [u] [wd] [sig_v] [L]
  
@@ -56,6 +58,14 @@ Here is an expanded example
       
 Make sure there are no spaces in the station name or file path.
    
+### Aggregating multiple individual footprint grids into a cumulative file from the command line
+
+On the commandline simply write
+
+      idl -rt=/Users/Username/fpr_write_cumulative_ncdf.sav
+      
+This will open the user-interface to select multiple input files (from a file list) and determine the output file name and location.      
+   
 ### Batch processing
 
 You can write a batch file or use scripting to call the same line with different arguments to process large datasets and automatically change the filenames of the output.
@@ -79,9 +89,9 @@ This compiled code calculates the flux source area ('footprint') for one given t
 
 This code aggregates a cumulative flux source area ('footprint') file by averaging
 multiple individual footprint files form multiple time steps. The individual 
-files must have been generated in netCDF format by #fpr_write_ncdf# and have 
-the same dimensions. By selectively choosing files, one can create cumulative
-footprints for specific cases (e.g. night, day).
+files must have been generated in netCDF format by fpr_write_ncdf.sav and have 
+all the same dimensions. By selectively choosing files, one can create cumulative
+footprints for specific cases (e.g. night, day). 
 
 ## Source Code 
 
