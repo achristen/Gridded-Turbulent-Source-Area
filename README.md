@@ -16,15 +16,15 @@ Individual source areas for one time step can be merged into a cumulative source
 
 ## Running the software
 
-You must have the IDL Virtual Machine installed. To install the IDL Virtual Machine go to:
+You must have the IDL Virtual Machine installed. The following steps have been tested under UNIX / Mac. To install the IDL Virtual Machine go to:
 
 http://www.exelisvis.com/Support/HelpArticlesDetail/TabId/219/ArtMID/900/ArticleID/12395/The-IDL-Virtual-Machine.aspx
 
-Then you can call then IDL in runtime mode from the command line with the following required arguments:
+Then you can call IDL in runtime mode from the command line with the following required arguments:
 
       idl =rt=[Path-to-fpr_write_ncdf.sav] -args [Outputfile] [z0] [zm] [u] [wd] [sig_v] [L]
  
-Arguments passed vis -args are as follows in exactly this order
+Arguments passed via "-args" are as follows in exactly this order and separated by space
  
 * [Path-to-fpr_write_ncdf.sav] is the full file path to the compiled Path-to-fpr_write_ncdf.sav file
 * [Outputfile] is the full file path of the netCDF file to be written
@@ -51,6 +51,15 @@ There are additional optional commands as follows
 Here is an example
 
    idl -rt=/Users/Username/fpr_write_ncdf.sav -args /Users/Username/footprint.nc 0.002 25.42 3.25 320.2 0.032 294002 500 200 1000 2.0 1783049.5 Vancouver-Sunset GMT-8 UBC
+   
+### Potential errors   
+   
+   If you cannot run this command, you must set-up your IDL command first:
+
+            echo "export PATH=/Applications/exelis/idl84/bin:$PATH" >> ~/.bashrc;
+            echo "source ~/.bashrc" >> ~/.bash_profile
+
+Then log out and into your account again.
 
 ## Source Code
 
