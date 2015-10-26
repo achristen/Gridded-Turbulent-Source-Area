@@ -10,6 +10,8 @@ If the actual geographical distribution of sources (and sinks) in the source are
 
 ![](gridded-weighted-flux-example.png)
 
+This code calculates gridded fields of the footprint function *&phi;* (x,y) and writes them into documented netCDF files that can be opened in most high-level programming languages. The grid in teh file is aligned to geographic North and has a user-defined domain.
+
 Individual source areas for one time step can be merged into a cumulative source area to create a source area climatology. In a cumulative source area, for each x and y, the individual *&phi;* (x,y) from each time step are summed and divided by the number of time steps.
 
 ![](gridded-cumulative-source-area.png)
@@ -83,7 +85,7 @@ Then log out and into your account again.
 
 ### fpr_write_ncdf.sav
 
-This compiled code calculates the flux source area ('footprint') for one given time step in a gridded version, rotates then the output into mean wind and writes a geographcally referenced raster into a netCDF file. It can be called from the command line as discussed above.
+This compiled code calculates the flux source area ('footprint') for one given time step in a gridded version for a given domain, rotates then the output into mean wind and writes a geographcally referenced raster into a netCDF file. It can be called from the command line as discussed above.
 
 ### fpr_write_ncdf.sav
 
