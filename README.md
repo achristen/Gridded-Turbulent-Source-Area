@@ -12,9 +12,13 @@ If the actual geographical distribution of sources (and sinks) in the source are
 
 This code calculates gridded fields of the footprint function *&phi;* (x,y) and writes them into documented netCDF files that can be opened in most high-level programming languages. The grid in teh file is aligned to geographic North and has a user-defined domain.
 
-Individual source areas for one time step can be merged into a cumulative source area to create a source area climatology. In a cumulative source area, for each x and y, the individual *&phi;* (x,y) from each time step are summed and divided by the number of time steps.
+Individual source areas for one time step can be merged into a cumulative source area to create a source area climatology. In a cumulative source area, for each x and y, the individual *&phi;* (x,y) from each time step are summed and divided by the number of time steps. 
 
 ![](gridded-cumulative-source-area.png)
+
+Here are examples of cumulative source areas for our flux tower [Vancouver Sunset](#http://ibis.geog.ubc.ca/~achristn/infrastructure/sunset.html):
+
+http://ibis.geog.ubc.ca/~epicc/source_areas/resources/ST.html
 
 ## Creating footprint grids from the command line
 
