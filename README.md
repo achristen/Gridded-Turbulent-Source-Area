@@ -85,6 +85,7 @@ In R you can use:
 http://rnetcdf.r-forge.r-project.org
 
 The source area files have the following fields in the netCDF:
+
       NAME            TYPE      EXAMPLE
       ======================================================================================
       TITLE           STRING    'Flux footprint model output'
