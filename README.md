@@ -1,6 +1,6 @@
 # Gridded-Turbulent-Source-Area
 
-Purpose: Calculate and output gridded turbulent source areas following the [Kormann and Meixner (2000)](#korman) analytical source area model. 
+Purpose: Calculate and output a 2D gridded turbulent source areas following the [Kormann and Meixner (2000)](#korman) analytical source area model. 
 
 In the case of a landscape with a homogenous distribution of sources (or sinks) at the surface, the gridded footprint function *&phi;* (x,y) shows the fraction of vertical turbulent flux originating from a cell (m^-2) representing a surface area. More generally, the grid cells show the vertical flux at the surface per unit point source (at the tower), when inverting time. 
 
@@ -66,7 +66,119 @@ On the commandline simply write
 
       idl -rt=/Users/Username/fpr_write_cumulative_ncdf.sav
       
-This will open the user-interface to select multiple input files (from a file list) and determine the output file name and location.      
+This will open the user-interface to select multiple input files (from a file list) and determine the output file name and location.     
+
+### Reading the source areas
+
+Any program that can handle netCDFs should be able to read the output files.
+
+To read them in IDL you can use my easy to handle ncdf2struct.pro code or native functions.
+
+https://github.com/achristen/netCDF2struct-IDL
+
+For Matlab, see native functions: open netcdf in matlab:
+
+http://www.mathworks.com/help/matlab/ref/netcdf.html
+
+In R you can use:
+
+http://rnetcdf.r-forge.r-project.org
+
+The source area files have the following fields in the netCDF:
+      NAME            TYPE      EXAMPLE
+      ======================================================================================
+      TITLE           STRING    'Flux footprint model output'
+      DESCRIPTION     STRING    'Turbulent flux footprint calculated based on ....'
+      PROVIDER        STRING    'The University of British Columbia'
+      SITE            STRING    'Burns Bog Flux Tower'
+      TIME            STRING    'JULY 23 2014 12:00'
+      JULIANTIME      DOUBLE    2451545.0
+      TIMEZONE        STRING    'PST'
+      FILE_CREATED    STRING    'JULY 23 2014 13:32'
+      EASTING         FLOAT     Array[401]
+      EASTING_UNIT    STRING    'metre'
+      NORTHING        FLOAT     Array[401]
+      NORTHING_UNIT   STRING    'metre'
+      PHI             DOUBLE    Array[401, 401]
+      PHI_UNIT        STRING    'metre^-2'
+      PHI_DESCRIPTION STRING    'Flux footprint or vertical flux per unit point source'
+      MODEL_INPUT_D   DOUBLE    5.0000000
+      MODEL_INPUT_D_UNIT
+                   STRING    'metre'
+      MODEL_INPUT_D_DESCRIPTION
+                   STRING    'Spatial resolution of flux footprint raster data'
+      MODEL_INPUT_Z0  FLOAT         0.0100000
+      MODEL_INPUT_Z0_UNIT   
+                   STRING    'metre'
+      MODEL_INPUT_Z0_DESCRIPTION
+                   STRING    'Roughness length'
+      MODEL_INPUT_ZM  FLOAT           2.00000
+      MODEL_INPUT_ZM_UNIT
+                   STRING    'metre'
+      MODEL_INPUT_ZM_DESCRIPTION
+                   STRING    'Effective measurement height (z-d)'
+      MODEL_INPUT_OBUKHOV_LENGTH
+                   FLOAT          -34.9630
+      MODEL_INPUT_OBUKHOV_LENGTH_UNIT
+                   STRING    'metre'
+      MODEL_INPUT_OBUKHOV_LENGTH_DESCRIPTION
+                   STRING    'Obukhov length at zm'
+      MODEL_INPUT_SIGMA_V
+                   FLOAT          0.527146
+      MODEL_INPUT_SIGMA_V_UNIT
+                   STRING    'metre second^-1'
+      MODEL_INPUT_SIGMA_V_DESCRIPTION
+                   STRING    'Wind direction relative to geographic North (clockwise) at zm'
+      MODEL_INPUT_WIND_VELOCITY
+                   FLOAT           1.27379
+      MODEL_INPUT_WIND_VELOCITY_UNIT
+                   STRING    'metre second^-1'
+      MODEL_INPUT_WIND_DIRECTION
+                   FLOAT           260.000
+      MODEL_INPUT_WIND_DIRECTION_UNIT
+                   STRING    'degree'
+      MODEL_PARAMETER_M
+                   FLOAT          0.224350
+      MODEL_PARAMETER_M_UNIT
+                   STRING    '-'
+      MODEL_PARAMETER_M_DESCRIPTION
+                   STRING    'Exponent of the wind velocity power law'
+      MODEL_PARAMETER_N
+                   FLOAT           1.21004
+      MODEL_PARAMETER_N_UNIT
+                   STRING    '-'
+      MODEL_PARAMETER_N_DESCRIPTION
+                   STRING    'Exponent of the eddy diffusivity power law'
+      MODEL_PARAMETER_CONST_U
+                   FLOAT           1.09472
+      MODEL_PARAMETER_CONST_U_UNIT
+                   STRING    'metre^(1−m) second^−1'
+      MODEL_PARAMETER_CONST_U_DESCRIPTION
+                   STRING    'Constant in power-law profile of the wind velocity'
+      MODEL_PARAMETER_USTAR
+                   FLOAT         0.0996041
+      MODEL_PARAMETER_USTAR_UNIT
+                   STRING    'metre second^-1'
+      MODEL_PARAMETER_USTAR_DESCRIPTION
+                   STRING    'Friction velocity'
+       MODEL_PARAMETER_KAPPA
+                FLOAT         0.0479837
+      MODEL_PARAMETER_KAPPA_UNIT
+                   STRING    'metre^(2−n) second^−1'
+      MODEL_PARAMETER_KAPPA_DESCRIPTION
+                   STRING    'Constant in power-law profile of the eddy diffusivity'
+      MODEL_PARAMETER_XSI
+                   FLOAT           44.7923
+      MODEL_PARAMETER_XSI_UNIT
+                   STRING    'metre'
+      MODEL_PARAMETER_XSI_DESCRIPTION
+                   STRING    'Flux length scale'
+      MODEL_PARAMETER_XMAX
+                   FLOAT           20.0000
+      MODEL_PARAMETER_XMAX_UNIT
+                   STRING    'metre'
+      MODEL_PARAMETER_XMAX_DESCRIPTION
+                   STRING    'Upwind distance of maximum flux per unit point source'
    
 ### Batch processing
 
