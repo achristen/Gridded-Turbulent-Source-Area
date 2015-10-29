@@ -16,7 +16,7 @@ Individual source areas for one time step can be merged into a cumulative source
 
 ![](gridded-cumulative-source-area.png)
 
-Here are examples of cumulative source areas for our flux tower [Vancouver Sunset](#http://ibis.geog.ubc.ca/~achristn/infrastructure/sunset.html):
+Here are examples of cumulative source areas for our flux tower [Vancouver Sunset](http://ibis.geog.ubc.ca/~achristn/infrastructure/sunset.html):
 
 http://ibis.geog.ubc.ca/~epicc/source_areas/resources/ST.html
 
