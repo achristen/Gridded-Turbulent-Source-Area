@@ -35,7 +35,7 @@ Arguments passed via "-args" are as follows in exactly this order and separated 
 * [Path_to_fpr_write_ncdf.sav] is the full file path to the compiled Path-to-fpr_write_ncdf.sav file
 * [Path_to_output_file] is the full file path of the netCDF file to be written
 * [z0] is the rougness length (in m)
-* [zm] is the height of flux system (in m) 
+* [zm] is the height of flux system above ground (in m). Over large roughness, you must enter the effective measurement height (z-d), where z is the height above ground (in m) and d is the zero plane displacement heigh (in m).
 * [u] is the longitudinal wind velocity component (im m/s)
 * [wd] wind direction (from geogr. N)
 * [sig_v] is the standard deviation of lateral wind velocity (im m/s)
