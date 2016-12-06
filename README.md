@@ -293,6 +293,16 @@ files must have been generated in netCDF format by #fpr_write_ncdf# and have
 all exactly the same dimensions. By selectively choosing files, one can create cumulative
 footprints for specific cases (e.g. night, day).
 
+#### Optional inputs include:
+
+*  ncfiles : stringarray. This is an optional parameter that supplies of a string array of paths to all 
+individual foortprint files that should be aggregated. If not provided, a file
+dialog will promt the user to select multiple footprint files.
+
+* outfile. string (path). This is the file path to which the cumulative file (to be created) will be written to. If not provided, a file dialog will promt the user to choose the name and location of the cumulative footprint output.
+   
+* "description". string. This is a used-defined, optional description that allows to place a description into the netCDF output, e.g. "night-time cases".
+
 ### fpr_kml.pro
 
 This code translates an individual or cumulative netCDF footprint file into a .kml file that can be opened and visualized in Google Earth, as in the following example at the Canadian Westham Island Grassland Site <href="https://fluxnet.ornl.gov/site/4133">CA-Wes Fluxnet Site</a>:
@@ -303,15 +313,15 @@ There are two options: Visualize the footprint as heat map as above, or alternat
 
 ![](example_cumulative_wi.jpg)
 
+The compiled version can be called as follows:
+
+     idl -rt=/Users/Username/fpr_kml.sav -args /Users/Username/footprint.nc -123.0784 49.2261
+     
+For the source code see header documentation.     
+
 #### Optional inputs include:
 
-*  ncfiles : stringarray. This is an optional parameter that supplies of a string array of paths to all 
-individual foortprint files that should be aggregated. If not provided, a file
-dialog will promt the user to select multiple footprint files.
-
-* outfile. string (path). This is the file path to which the cumulative file (to be created) will be written to. If not provided, a file dialog will promt the user to choose the name and location of the cumulative footprint output.
-   
-* "description". string. This is a used-defined, optional description that allows to place a description into the netCDF output, e.g. "night-time cases".
+* "heat_map". keyword. Creates a heat_map instead of a contour graph.
 
 ## References
 
