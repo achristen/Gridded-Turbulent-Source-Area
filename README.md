@@ -2,7 +2,7 @@
 
 Purpose: Calculate and output a 2D gridded turbulent source areas following the [Kormann and Meixner (2000)](#korman) analytical source area model. Visualize footprints in Google Earth as .kml Files.
 
-Example of a footprint visualzied as heat map at the Canadian BC-Campbell River 1988 Douglas-fir <href="https://fluxnet.ornl.gov/site/122">CA-Ca3 Fluxnet Site</a>:
+Example of a cumulative long-term footprint (entire year 2015) visualzied as heat map at the Canadian BC-Campbell River 1988 Douglas-fir <href="https://fluxnet.ornl.gov/site/122">CA-Ca3 Fluxnet Site</a>:
 
 ![](example_heatmap.png)
 
@@ -24,9 +24,9 @@ Here are examples of cumulative source areas for our flux tower [Vancouver Sunse
 
 http://ibis.geog.ubc.ca/~epicc/source_areas/resources/ST.html
 
-Here is an example visualizing the footprint in fpr_kml at the Canadian Vancouver-Sunset <href="https://fluxnet.ornl.gov/site/4132">CA-Vs Fluxnet Site</a>:
+Here is an example visualizing the cumulative long-term footprint in fpr_kml at the Canadian Vancouver-Sunset <href="https://fluxnet.ornl.gov/site/4132">CA-VSu Fluxnet Site</a>:
 
-![](example_footprint.png)
+![](example_footprint.jpg)
 
 ## Creating footprint grids from the command line
 
@@ -290,8 +290,18 @@ The output includes in a structure:
 This code aggregates a cumulative flux source area ('footprint') file by averaging
 multiple individual footprint files form multiple time steps. The individual 
 files must have been generated in netCDF format by #fpr_write_ncdf# and have 
-the same dimensions. By selectively choosing files, one can create cumulative
+all exactly the same dimensions. By selectively choosing files, one can create cumulative
 footprints for specific cases (e.g. night, day).
+
+### fpr_kml.pro
+
+This code translates an individual or cumulative netCDF footprint file into a .kml file that can be opened and visualized in Google Earth, as in the following example at the Canadian Westham Island Grassland Site <href="https://fluxnet.ornl.gov/site/4133">CA-Wes Fluxnet Site</a>:
+
+![](example_heatmap_wi.jpg)
+
+There are two options: Visualize the footprint as heat map as above, or alternatively as a cumulative probability distribution as here:
+
+![](example_cumulative_wi.jpg)
 
 #### Optional inputs include:
 
