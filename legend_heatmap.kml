@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<name>Legend for Footprints (Heat Maps)</name>
+<ScreenOverlay id="feat_9722">
+<Icon id="link_0">
+<name>Legend</name>
+<href>http://ibis.geog.ubc.ca/~achristn/images/footprint_legend_small.gif</href>
+</Icon>
+<overlayXY x="0" xunits="fraction" y="0" yunits="fraction"/>
+<screenXY x="25" xunits="pixel" y="95" yunits="pixel"/>
+<size x="96" xunits="pixel" y="352" yunits="pixel"/>
+</ScreenOverlay>
+</kml>
