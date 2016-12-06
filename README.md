@@ -317,7 +317,9 @@ The compiled version can be called as follows:
 
      idl -rt=/Users/Username/fpr_kml.sav -args /Users/Username/footprint.nc -123.0784 49.2261
      
-For the source code see header documentation.     
+For the source code see header documentation.
+
+Legends files are uploaded as legend_contour.kml and legend_heatmap.kml and link to files footprint_contour_legend_small.gif and footprint_legend_small.gif
 
 #### Optional inputs include:
 
