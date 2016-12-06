@@ -1,6 +1,10 @@
 # Gridded-Turbulent-Source-Area
 
-Purpose: Calculate and output a 2D gridded turbulent source areas following the [Kormann and Meixner (2000)](#korman) analytical source area model. 
+Purpose: Calculate and output a 2D gridded turbulent source areas following the [Kormann and Meixner (2000)](#korman) analytical source area model. Visualize footprints in Google Earth as .kml Files.
+
+Example of a footprint visualzied as heat map at the Canadian BC-Campbell River 1988 Douglas-fir <href="https://fluxnet.ornl.gov/site/122">CA-Ca3 Fluxnet Site</a>:
+
+![](example_heatmap.png)
 
 In the case of a landscape with a homogenous distribution of sources (or sinks) at the surface, the gridded footprint function *&phi;* (x,y) shows the fraction of vertical turbulent flux originating from a cell (m^-2) representing a surface area. More generally, the grid cells show the vertical flux at the surface per unit point source (at the tower), when inverting time. 
 
@@ -19,6 +23,10 @@ Individual source areas for one time step can be merged into a cumulative source
 Here are examples of cumulative source areas for our flux tower [Vancouver Sunset](http://ibis.geog.ubc.ca/~achristn/infrastructure/sunset.html):
 
 http://ibis.geog.ubc.ca/~epicc/source_areas/resources/ST.html
+
+Here is an example visualizing the footprint in fpr_kml at the Canadian Vancouver-Sunset <href="https://fluxnet.ornl.gov/site/4132">CA-Vs Fluxnet Site</a>:
+
+![](example_footprint.png)
 
 ## Creating footprint grids from the command line
 
